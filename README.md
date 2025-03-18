@@ -3,7 +3,7 @@
 1. Exploring JavaScript Objects
 Objective: The aim of this assignment is to deepen understanding and proficiency in manipulating JavaScript objects, including creating objects, accessing properties and methods, using constructors, and working with prototypes.
 
-Problem Statement: You are tasked with creating a JavaScript program that simulates a digital library system. The program should allow users to add new books, search for books by title or author, and display information about the library's collection.
+Question 1 - Problem Statement: You are tasked with creating a JavaScript program that simulates a digital library system. The program should allow users to add new books, search for books by title or author, and display information about the library's collection.
 
 Task 1: Create a constructor function for the Book object with properties for title, author, and pages.
 
@@ -21,7 +21,7 @@ Students should be able to manipulate arrays of objects and implement functions 
 2. Exploring Objects and Math in JavaScript
 Objective: The objective of this assignment is to enhance proficiency in working with JavaScript objects and utilizing the Math class for mathematical operations.
 
-Problem Statement: You are tasked with developing a JavaScript program that simulates a simple banking application. The program should allow users to create accounts, deposit funds, withdraw funds, and calculate interest based on specified rates.
+Question 2 - Problem Statement: You are tasked with developing a JavaScript program that simulates a simple banking application. The program should allow users to create accounts, deposit funds, withdraw funds, and calculate interest based on specified rates.
 
 Task 1: Create a constructor function for the Account object with properties for accountNumber, balance, and owner.
 
