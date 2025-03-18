@@ -1,40 +1,67 @@
-// task 1 - adding and removing elements
-
-let fruits = ['apple', 'banana', 'orange'];
-
-function addElement(element) {
-    fruits.push(element);
+// Task 1: Constructor function with properties for title, author, pages, and availability
+function Library(title, author, pages, available) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.available = available;
 }
 
-function removeElement() {
-    fruits.pop();
+// Task 2: Method to display book information
+Library.prototype.displayLib = function() {
+    console.log(`Title: ${this.title}, Author: ${this.author}, Pages: ${this.pages}, Availability: ${this.available ? 'Available' : 'Not Available'}`);
 }
 
+// Task 3: Create an array to store book objects
+let books = [
+    new Library("1984", "George Orwell", 80, true),
+    new Library("The Lord of the Rings", "J.R.R. Tolkien", 200, false),
+    new Library("To the Lighthouse", "Virginia Woolf", 250, true)
+];
 
-addElement('grapefruit');
-addElement('blueberry');
-console.log(fruits);
-removeElement();
-console.log(fruits);
+// Task 3: Function to add a new book to the library
+function addBook(title, author, pages, available) {
+    let newBook = new Library(title, author, pages, available);
+    books.push(newBook);
+}
 
-// task 2 - sorting arrays 
+// Task 3: Function to search books by title or author
+function searchBook(query) {
+    return books.filter(book => 
+        book.title.toLowerCase().includes(query.toLowerCase()) || 
+        book.author.toLowerCase().includes(query.toLowerCase())
+    );
+}
 
-let numbers = [3, 1, 5, 2, 4];
-numbers.sort();
-console.log(numbers);
+// Task 4: Function to filter books with more than 100 pages
+function filterBooksByPageCount() {
+    return books.filter(book => book.pages > 100);
+}
 
-// task 3 - use map to double each number
+// Task 4: Function to update book objects using the map method
+function formatBookDetails() {
+    return books.map(book => ({
+        title: `Title: ${book.title}`,
+        author: `Author: ${book.author}`,
+        pages: book.pages,
+        available: book.available
+    }));
+}
 
-// let number = [3, 1, 5, 2, 4];
-let doubles = numbers.map(num => num * 2);
-console.log(doubles);
+// Task 3: Prototype method to update availability
+Library.prototype.updateAvailable = function(updateAvailable) {
+    this.available = updateAvailable;
+};
 
-// - use filter to filter our even numbers from array
+// Testing
+addBook("Brave New World", "Aldous Huxley", 300, true); // Adding a new book
+console.log("Library Books:");
+books.forEach(book => book.displayLib());
 
-let odds = numbers.filter(num => num % 2 !== 0)
-console.log(odds)
+console.log("\nSearch Results for 'Tolkien':", searchBook("Tolkien"));
 
-// - use reduce method to calculate the sum of all numbers in the array
+console.log("\nBooks with more than 100 pages:");
+console.log(filterBooksByPageCount());
 
-let total = numbers.reduce((acc,curr) => acc + curr, 0);
-console.log(total);
+console.log("\nFormatted Book Details:");
+console.log(formatBookDetails());
+
